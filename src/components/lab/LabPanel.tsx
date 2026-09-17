@@ -7,6 +7,8 @@ import RegisterReadout from './RegisterReadout'
 import SerialOutputStrip from './SerialOutputStrip'
 import HintBar from './HintBar'
 import CircuitDiagram from '../circuit/CircuitDiagram'
+import TimingChart from '../timing/TimingChart'
+import OperationTable from '../table/OperationTable'
 
 function LabPanel() {
   const [pipoState, pipoDispatch] = useReducer(simulatorReducer, 'PIPO', createInitialState)
@@ -38,6 +40,16 @@ function LabPanel() {
           <CircuitDiagram state={state} />
         </div>
       </div>
+
+      <h3 id="tiempos" className="ancla-interna">
+        Carta de tiempos
+      </h3>
+      <TimingChart history={state.history} kind={state.kind} />
+
+      <h3 id="tabla" className="ancla-interna">
+        Tabla de funcionamiento
+      </h3>
+      <OperationTable history={state.history} kind={state.kind} dispatch={dispatch} />
     </div>
   )
 }

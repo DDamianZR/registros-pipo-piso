@@ -16,14 +16,6 @@ function App() {
         </Section>
         <Section id="laboratorio" eyebrow="Laboratorio" title="Simulador interactivo" wide>
           <LabPanel />
-          <h3 id="tiempos" className="ancla-interna">
-            Carta de tiempos
-          </h3>
-          <p>Contenido temporal.</p>
-          <h3 id="tabla" className="ancla-interna">
-            Tabla de funcionamiento
-          </h3>
-          <p>Contenido temporal.</p>
         </Section>
         <Section id="arduino" eyebrow="Hardware" title="Circuito con Arduino" wide>
           <p>Contenido temporal.</p>

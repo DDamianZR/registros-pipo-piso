@@ -11,6 +11,8 @@ import './styles/layout.css'
 import './styles/controls.css'
 import './styles/lab.css'
 import './styles/circuit.css'
+import './styles/timing.css'
+import './styles/table.css'
 import App from './App'
 
 createRoot(document.getElementById('root')!).render(

@@ -1,0 +1,55 @@
+.tabla-funcionamiento {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tabla-funcionamiento__acciones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tabla-funcionamiento__contenedor {
+  max-height: 420px;
+  overflow: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--inset);
+}
+
+.tabla-funcionamiento__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tabla-funcionamiento__tabla th,
+.tabla-funcionamiento__tabla td {
+  padding: 8px 10px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--shadow-dark);
+}
+
+.tabla-funcionamiento__tabla thead th {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  box-shadow: var(--raised);
+  z-index: 1;
+}
+
+.tabla-funcionamiento__tabla td:last-child {
+  white-space: normal;
+  min-width: 220px;
+}
+
+.tabla-funcionamiento__tabla tr[aria-current='true'] {
+  background: var(--accent-soft);
+}
+
+.tabla-funcionamiento__nota {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
