@@ -31,6 +31,11 @@
   font-family: var(--font-mono);
 }
 
+.carta-tiempos__paso--flanco {
+  fill: var(--edge);
+  font-weight: 600;
+}
+
 .carta-tiempos__evento {
   font-size: 10px;
   fill: var(--text-muted);
@@ -42,15 +47,20 @@
   stroke-dasharray: 3 3;
 }
 
-.carta-tiempos__marca-etiqueta {
-  font-size: 10px;
-  fill: var(--edge);
-  font-family: var(--font-mono);
-}
-
 .carta-tiempos__onda {
   fill: none;
   stroke-width: 2;
+}
+
+.carta-tiempos__alto {
+  fill: var(--accent-soft);
+  opacity: 0.55;
+}
+
+.carta-tiempos__guia {
+  stroke: var(--wire-low);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
 }
 
 .carta-tiempos__anotacion {
