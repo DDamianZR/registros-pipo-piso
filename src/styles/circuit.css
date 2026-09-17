@@ -133,8 +133,8 @@
 }
 
 .mux-simbolo__cuerpo {
-  fill: var(--accent-soft);
-  stroke: var(--accent);
+  fill: var(--bg);
+  stroke: var(--text-muted);
   stroke-width: 1.5;
 }
 
@@ -148,17 +148,22 @@
   fill: var(--text);
 }
 
-.led-svg__circulo {
+.mux__pin--activo {
+  fill: var(--accent);
+  font-weight: 600;
+}
+
+.led-svg {
   fill: var(--led-off);
   stroke: var(--shadow-dark);
   stroke-width: 1;
 }
 
-.led-svg--on.led-svg--q .led-svg__circulo {
+.led-svg--on.led-svg--q {
   fill: var(--led-q-on);
 }
 
-.led-svg--on.led-svg--serial .led-svg__circulo {
+.led-svg--on.led-svg--serial {
   fill: var(--led-serial-on);
 }
 
