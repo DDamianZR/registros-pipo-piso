@@ -170,7 +170,6 @@
 .led-svg__etiqueta {
   font-size: 11px;
   fill: var(--text-muted);
-  text-anchor: middle;
 }
 
 .gnd-simbolo line {
