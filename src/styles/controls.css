@@ -1,0 +1,134 @@
+.interruptor-bit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 64px;
+  min-height: 64px;
+  padding: 10px 8px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  box-shadow: var(--raised);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: box-shadow 150ms, color 150ms;
+}
+
+.interruptor-bit__etiqueta {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.interruptor-bit__valor {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.interruptor-bit--on {
+  box-shadow: var(--inset);
+  color: var(--accent);
+}
+
+.interruptor-bit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.boton-pulso {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  box-shadow: var(--raised);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: box-shadow 120ms;
+}
+
+.boton-pulso--presionado {
+  box-shadow: var(--inset);
+}
+
+.boton-pulso--clock {
+  color: var(--accent-strong);
+}
+
+.boton-pulso--clear {
+  color: #9f1239;
+}
+
+.led {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.led::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--led-off);
+  box-shadow: var(--inset);
+  transition: background-color 150ms, box-shadow 150ms;
+}
+
+.led--sm::before {
+  width: 18px;
+  height: 18px;
+}
+
+.led--on.led--q::before {
+  background: var(--led-q-on);
+  box-shadow: 0 0 0 1px var(--led-q-on);
+}
+
+.led--on.led--serial::before {
+  background: var(--led-serial-on);
+  box-shadow: 0 0 0 1px var(--led-serial-on);
+}
+
+.control-segmentado {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  box-shadow: var(--raised);
+  gap: 4px;
+}
+
+.control-segmentado__opcion {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  min-height: 40px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.control-segmentado__opcion--activa {
+  box-shadow: var(--inset);
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interruptor-bit,
+  .boton-pulso,
+  .led::before {
+    transition: none;
+  }
+}

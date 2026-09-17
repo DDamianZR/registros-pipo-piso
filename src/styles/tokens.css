@@ -1,0 +1,34 @@
+:root {
+  /* Superficies y texto */
+  --bg: #ece9f3;
+  --shadow-dark: #c8c1d8;
+  --shadow-light: #ffffff;
+  --raised: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
+  --inset: inset 4px 4px 10px var(--shadow-dark), inset -4px -4px 10px var(--shadow-light);
+  --text: #26213a;
+  --text-muted: #5d5673;
+  --accent: #6d28d9;
+  --accent-strong: #5b21b6;
+  --accent-soft: #ddd3f5;
+  --focus-ring: 0 0 0 3px #a78bfa;
+
+  /* Señales y cables */
+  --wire-high: #7c3aed;
+  --wire-low: #b3abc6;
+  --sig-clock: #26213a;
+  --sig-control: #0f766e;
+  --sig-input: #52607a;
+  --sig-output: #6d28d9;
+  --sig-serial: #b45309;
+  --edge: #d97706;
+  --led-q-on: #8b5cf6;
+  --led-serial-on: #f59e0b;
+  --led-off: #d9d4e4;
+
+  /* Forma y tipografía */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
