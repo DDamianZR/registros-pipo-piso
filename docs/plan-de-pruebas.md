@@ -48,6 +48,29 @@ Matriz completa de validación del proyecto. Las pruebas de la sección 15.A est
 | TAB-04 | CSV PISO | PISO_CANONICA | Idéntico a la secuencia canónica (con `\r\n`) | |
 | TAB-05 | CSV PIPO | PIPO_CANONICA | Idéntico a la secuencia canónica (con `\r\n`) | |
 | HINT-01…08 | Sugerencias | Un estado por regla (3 PIPO + 5 PISO) | Texto de la regla esperada | |
+| PROC-01 | Procedimiento PIPO | `describeSequence('PIPO', PIPO_CANONICA)` | Acciones textuales exactas de la secuencia canónica | |
+| PROC-02 | Procedimiento PISO | `describeSequence('PISO', PISO_CANONICA)` | Acciones textuales exactas de la secuencia canónica | |
+| PROC-03 | Resultados del procedimiento PISO | Ídem | Último paso `Q = 0000 · SER_OUT = 0`; paso 5 `Q = 0101 · SER_OUT = 1` | |
+| PROC-04 | Coherencia con el CSV | Comparar longitud de pasos con `runSequence(...).history.length − 1` | Igual número de pasos en ambas secuencias | |
+| GEO-01 | Caja de etiqueta | `labelBox` con anclas start/middle/end, texto de 4 caracteres, fontSize 10 | Cajas esperadas según la fórmula de §4.4 | |
+| GEO-02 | Detección de violaciones | Un caso por regla V1–V7 | `validateGeometry` reporta cada violación por separado | |
+| GEO-03 | Borde sin problema | Cable que termina en el borde de un cuerpo | No se reporta violación V4 | |
+| GEO-04 | Cruce perpendicular | Redes distintas que se cruzan en ángulo recto | No se reporta ninguna violación | |
+| CIR-01 | Geometría PIPO válida | `validateGeometry(buildPipoGeometry())` | `[]` | |
+| CIR-02 | Geometría PISO válida | `validateGeometry(buildPisoGeometry())` | `[]` | |
+| CIR-03 | Conectividad PIPO | Extremos de `d{i}`, `q{i}`, `clk`, `clr` | Coinciden con los pines de cada flip-flop | |
+| CIR-04 | Conectividad PISO | Extremos de `d{i}`, `muxOut{i}`, `fb{i}`, `serIn`, `serOut` | Coinciden con los pines de cada MUX/flip-flop | |
+| CIR-05 | Niveles tras el primer corrimiento | `PISO_CANONICA.slice(0,5)` | `fb2=0, fb1=1, fb0=0, serOut=1, muxOut1=1, d3=1, d1=1` | |
+| CIR-06 | Rutas activas según SH/LD̅ | shLd=0 y shLd=1 | `d{i}` y `fb{i}` se alternan como activos/inactivos | |
+| CIR-07 | Separación entre etapas | Redes `fb2`, `fb1`, `fb0` | Ningún punto compartido entre ellas | |
+| WIR-01 | Geometría del cableado válida | `validateGeometry(buildWiringGeometry())` | `[]` | |
+| WIR-02 | Coherencia con `pines.ts` | `ORDEN_FISICO` vs `pines.ts` | Mismo conjunto de pines, salvo `D13` | |
+| WIR-03 | Cuerpo por tipo de fila | Filas LED, switch y pulsador | `resistor`+`led-fisico`, `switch`, `pulsador` respectivamente | |
+| WIR-04 | Riel GND | Red `gnd` | 13 uniones; un segmento termina en `(150, 580)` | |
+| TIM-06 | Tramos de nivel alto | `highRuns([0,1,1,0,1])`, `[]`, `[1,1]` | `[{1,3},{4,5}]`, `[]`, `[{0,2}]` | |
+| TIM-07 | Encabezado de ranura | `slotHeaderText` en flanco y en entrada | `↑n` y `n` respectivamente | |
+| TIM-08 | Trazo de onda fijo | `waveformPath([0,1],'level',44,6,22)` | `M 0 22 L 44 22 L 44 22 L 44 6 L 88 6` | |
+| TIM-09 | Encabezado sin desborde | `slotHeaderText` hasta el paso 999 | El ancho del texto cabe en `SLOT_W` (44) | |
 
 ## 15.B Interfaz (manual, en `vite preview` y en el sitio publicado)
 
@@ -65,6 +88,8 @@ Matriz completa de validación del proyecto. Las pruebas de la sección 15.A est
 | UI-10 | Responsive | 390 px sin scroll horizontal de página; diagrama y carta desplazables dentro de su contenedor | |
 | UI-11 | Teclado | Todo operable con Tab, Enter y Espacio; foco visible | |
 | UI-12 | Código Arduino | El visor muestra el `.ino` completo; "Descargar .ino" funciona | |
+| UI-13 | Script de desbordes (§4.2.6) | Anchos 320, 360, 390, 768, 1024 y 1280 | Ningún desborde; `h1 = 1`; menú visible en móvil | |
+| UI-14 | Diagramas lógicos PIPO y PISO | Los tres estados de la fase de geometría verificable | Cables separados, nada atraviesa símbolos, textos completos, entrada activa del MUX resaltada | |
 
 ## 15.C Hardware (lo ejecuta el equipo; llenar "Resultado observado")
 
