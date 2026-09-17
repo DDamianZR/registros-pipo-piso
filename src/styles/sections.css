@@ -107,3 +107,68 @@
   font-size: 12px;
   color: var(--text-muted);
 }
+
+.diagrama-conexiones {
+  display: block;
+  margin: 16px 0 24px;
+}
+
+.diagrama-conexiones__arduino {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.diagrama-conexiones__etiqueta {
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+.diagrama-conexiones__pin {
+  font-size: 11px;
+  fill: var(--text);
+}
+
+.diagrama-conexiones__cable {
+  stroke-width: 2;
+}
+
+.diagrama-conexiones__bloque {
+  fill: var(--bg);
+  stroke: var(--shadow-dark);
+}
+
+.diagrama-conexiones__bloque-texto {
+  font-size: 11px;
+  fill: var(--text);
+}
+
+.diagrama-conexiones__nota {
+  font-size: 12px;
+  fill: var(--text-muted);
+}
+
+.visor-codigo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.visor-codigo__acciones {
+  display: flex;
+  gap: 12px;
+}
+
+.visor-codigo__pre {
+  max-height: 480px;
+  overflow: auto;
+  background: var(--bg);
+  box-shadow: var(--inset);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre;
+}

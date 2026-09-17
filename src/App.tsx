@@ -6,6 +6,7 @@ import IntroSection from './components/sections/IntroSection'
 import TheorySection from './components/sections/TheorySection'
 import ResultsSection from './components/sections/ResultsSection'
 import QuestionsSection from './components/sections/QuestionsSection'
+import HardwareSection from './components/sections/HardwareSection'
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <LabPanel />
         </Section>
         <Section id="arduino" eyebrow="Hardware" title="Circuito con Arduino" wide>
-          <p>Contenido temporal.</p>
+          <HardwareSection />
         </Section>
         <Section id="resultados" eyebrow="Resultados" title="Resultados de referencia" wide>
           <ResultsSection />
