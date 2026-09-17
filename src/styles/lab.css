@@ -1,0 +1,128 @@
+.panel-laboratorio {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel-laboratorio__area {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.panel-laboratorio__controles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--raised);
+  padding: 20px;
+}
+
+@media (min-width: 1100px) {
+  .panel-laboratorio__area {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+
+  .panel-laboratorio__controles {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+.control-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.control-deck__switches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.control-deck__botones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lectura-registro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--inset);
+}
+
+.lectura-registro__leds {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lectura-registro__palabra {
+  font-size: 20px;
+  color: var(--text);
+  margin: 0;
+}
+
+.salida-serial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--inset);
+}
+
+.salida-serial__ranuras {
+  display: flex;
+  gap: 8px;
+}
+
+.salida-serial__ranura {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  box-shadow: var(--raised);
+  color: var(--text-muted);
+}
+
+.salida-serial__ranura--activa {
+  box-shadow: 0 0 0 2px var(--edge), var(--raised);
+  color: var(--accent);
+}
+
+.salida-serial__orden {
+  font-size: 11px;
+}
+
+.salida-serial__bit {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.salida-serial__palabra {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.barra-sugerencia {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 14px;
+}

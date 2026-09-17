@@ -1,6 +1,7 @@
 import SiteHeader from './components/layout/SiteHeader'
 import SiteFooter from './components/layout/SiteFooter'
 import Section from './components/layout/Section'
+import LabPanel from './components/lab/LabPanel'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <p>Contenido temporal.</p>
         </Section>
         <Section id="laboratorio" eyebrow="Laboratorio" title="Simulador interactivo" wide>
-          <p>Contenido temporal.</p>
+          <LabPanel />
           <h3 id="tiempos" className="ancla-interna">
             Carta de tiempos
           </h3>

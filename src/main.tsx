@@ -9,6 +9,7 @@ import './styles/tokens.css'
 import './styles/base.css'
 import './styles/layout.css'
 import './styles/controls.css'
+import './styles/lab.css'
 import App from './App'
 
 createRoot(document.getElementById('root')!).render(
