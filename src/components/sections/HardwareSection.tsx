@@ -74,10 +74,10 @@ function HardwareSection() {
       <h3>Uso del Monitor Serie</h3>
       <p>
         Abre el Monitor Serie a 115200 baudios. Cada evento imprime una fila con el mismo formato CSV que exporta la
-        tabla de la web (<code className="mono">paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea</code>), así
-        que la secuencia canónica ejecutada en el hardware puede compararse línea por línea con el CSV descargado
-        desde el laboratorio interactivo.
+        tabla de la web, así que la secuencia canónica ejecutada en el hardware puede compararse línea por línea con
+        el CSV descargado desde el laboratorio. El encabezado es:
       </p>
+      <pre className="bloque-linea mono">paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea</pre>
     </>
   )
 }

@@ -13,7 +13,7 @@ function App() {
     <>
       <SiteHeader />
       <main>
-        <Section id="inicio" title="Registros PIPO y PISO de 4 bits" wide>
+        <Section id="inicio" title="Registros PIPO y PISO de 4 bits" wide headingLevel={1}>
           <IntroSection />
         </Section>
         <Section id="fundamentos" eyebrow="Fundamentos" title="PIPO vs. PISO">

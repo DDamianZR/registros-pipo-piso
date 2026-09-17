@@ -11,29 +11,43 @@ const ENLACES = [
   { id: 'preguntas', label: 'Preguntas' },
 ]
 
+function calcularActivo(): string {
+  let activo = 'inicio'
+  for (const enlace of ENLACES) {
+    const elemento = document.getElementById(enlace.id)
+    if (elemento && elemento.getBoundingClientRect().top <= 120) {
+      activo = enlace.id
+    }
+  }
+  return activo
+}
+
 function SiteHeader() {
   const [activeId, setActiveId] = useState('inicio')
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   useEffect(() => {
-    const secciones = ENLACES.map((enlace) => document.getElementById(enlace.id)).filter(
-      (elemento): elemento is HTMLElement => elemento !== null,
-    )
+    let cuadroPendiente: number | null = null
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibles = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        if (visibles.length > 0) {
-          setActiveId(visibles[0].target.id)
-        }
-      },
-      { rootMargin: '-30% 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
-    )
+    const programarActualizacion = () => {
+      if (cuadroPendiente !== null) return
+      cuadroPendiente = requestAnimationFrame(() => {
+        cuadroPendiente = null
+        setActiveId(calcularActivo())
+      })
+    }
 
-    secciones.forEach((seccion) => observer.observe(seccion))
-    return () => observer.disconnect()
+    setActiveId(calcularActivo())
+    window.addEventListener('scroll', programarActualizacion, { passive: true })
+    window.addEventListener('resize', programarActualizacion, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', programarActualizacion)
+      window.removeEventListener('resize', programarActualizacion)
+      if (cuadroPendiente !== null) {
+        cancelAnimationFrame(cuadroPendiente)
+      }
+    }
   }, [])
 
   return (

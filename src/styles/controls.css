@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 4px;
   width: 64px;
+  max-width: 100%;
   min-height: 64px;
   padding: 10px 8px;
   border: none;

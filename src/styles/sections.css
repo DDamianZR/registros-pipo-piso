@@ -1,3 +1,13 @@
+.bloque-linea {
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--inset);
+  font-size: 14px;
+}
+
 .pasos-uso {
   padding-left: 20px;
   margin: 0 0 20px;
@@ -40,6 +50,11 @@
   border-collapse: collapse;
   font-size: 13px;
   margin-top: 12px;
+}
+
+.tabla-convencion {
+  display: block;
+  overflow-x: auto;
 }
 
 .tabla-convencion th,
