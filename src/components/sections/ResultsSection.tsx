@@ -1,6 +1,7 @@
 import { buildTableRows } from '../../logic/table'
 import { PIPO_CANONICA, PISO_CANONICA, runSequence } from '../../logic/vectors'
 import type { SimKind } from '../../logic/simulator'
+import { describeSequence } from '../../logic/procedure'
 import EvidenceGallery from './EvidenceGallery'
 
 function filasDe(kind: SimKind) {
@@ -9,6 +10,9 @@ function filasDe(kind: SimKind) {
   return buildTableRows(estado.history, kind)
 }
 
+const pasosPipo = describeSequence('PIPO', PIPO_CANONICA)
+const pasosPiso = describeSequence('PISO', PISO_CANONICA)
+
 function ResultsSection() {
   const filasPipo = filasDe('PIPO')
   const filasPiso = filasDe('PISO')
@@ -16,10 +20,19 @@ function ResultsSection() {
   return (
     <>
       <h3>Secuencia de referencia PIPO</h3>
+      <p>Secuencia ejecutada paso a paso:</p>
+      <ol className="pasos-uso">
+        {pasosPipo.map((paso) => (
+          <li key={paso.numero}>
+            {paso.accion}
+            <br />
+            <span className="mono">{paso.resultado}</span>
+          </li>
+        ))}
+      </ol>
       <p>
-        Activar D3 y D1, aplicar un pulso (Q retiene 1010 aunque D cambie después) y luego activar D3, D2, D1 y D0
-        antes de un segundo pulso. La tabla demuestra la captura simultánea de los 4 bits y la retención entre
-        flancos.
+        La tabla demuestra la captura simultánea de los 4 bits en el flanco de reloj y la retención de Q entre
+        flancos, aunque D cambie mientras tanto.
       </p>
       <div className="tabla-resultados__contenedor">
         <table className="tabla-resultados">
@@ -45,9 +58,19 @@ function ResultsSection() {
       </div>
 
       <h3>Secuencia de referencia PISO</h3>
+      <p>Secuencia ejecutada paso a paso:</p>
+      <ol className="pasos-uso">
+        {pasosPiso.map((paso) => (
+          <li key={paso.numero}>
+            {paso.accion}
+            <br />
+            <span className="mono">{paso.resultado}</span>
+          </li>
+        ))}
+      </ol>
       <p>
-        Cargar 1010 y aplicar cuatro corrimientos: SER_OUT presenta 0, 1, 0, 1, en orden LSB primero, y el registro
-        queda vacío (0000) tras el cuarto corrimiento.
+        SER_OUT presenta los bits en orden LSB primero (0, 1, 0, 1 para 1010) y el registro queda vacío (0000) tras
+        el cuarto corrimiento.
       </p>
       <div className="tabla-resultados__contenedor">
         <table className="tabla-resultados">

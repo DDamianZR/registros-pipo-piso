@@ -4,7 +4,7 @@ Esta tabla indica de dónde sacar cada sección del reporte escrito de la práct
 
 | Sección del reporte | Fuente |
 |---|---|
-| Portada | Datos de `src/content/proyecto.ts` + datos del equipo (a llenar por el equipo) |
+| Portada | Datos de `src/content/proyecto.ts`: integrantes, profesora, grupo, semestre, materia y práctica. |
 | Objetivos | Proponer 3 objetivos a partir de la sección "Fundamentos" de la web (`#fundamentos`) |
 | Marco teórico | Sección "Fundamentos" de la web y `docs/modelo-logico.md` |
 | Diagramas | Capturas del diagrama lógico interactivo (`#laboratorio`) en 1280 px de ancho, para PIPO y para PISO |

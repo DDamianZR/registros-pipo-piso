@@ -75,6 +75,17 @@ function TheorySection() {
         </table>
       </div>
 
+      <h3>¿Cuántos pulsos se necesitan?</h3>
+      <p>
+        Con 1 pulso de carga y 3 de corrimiento, los 4 bits quedan presentes, uno a la vez, en SER_OUT; el cuarto
+        corrimiento deja el registro en 0000.
+      </p>
+      <p>
+        Si un receptor muestrea SER_OUT en cada flanco de corrimiento, justo antes de que cambie, captura D0, D1, D2
+        y D3 en los flancos de corrimiento 1 a 4. En circuitos comerciales, el 74HC165 carga de forma asíncrona y el
+        74HC166 de forma síncrona, como este diseño.
+      </p>
+
       <h3>Carga síncrona frente a asíncrona</h3>
       <p>
         CLR es asíncrono: pone Q en 0000 de inmediato, sin esperar al reloj. En cambio, SH/LD̅ es síncrono: cambiar

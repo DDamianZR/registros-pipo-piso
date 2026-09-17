@@ -8,6 +8,16 @@ Sitio publicado: <https://ddamianzr.github.io/registros-pipo-piso/>
 
 Práctica 3 de la materia Diseño de Sistemas Digitales. Fecha de entrega: 20 de septiembre de 2026.
 
+## Equipo
+
+- Campos Blancas Frida Vanessa
+- González Miranda Julio César
+- Canales Zendreros Diego Damián
+
+Profesora: Ana Luz Barrales
+Grupo: 3BV1
+Semestre: 26-2
+
 ## Funcionalidades
 
 - Simulador interactivo de PIPO y PISO de 4 bits, con estado independiente por pestaña.
@@ -28,7 +38,7 @@ Detalle completo, con las ecuaciones booleanas de cada multiplexor, en [`docs/mo
 
 ## PIPO: tabla de referencia
 
-Secuencia: activar D3, activar D1, aplicar un pulso, activar D3, D2, D1, D0 y aplicar otro pulso.
+Secuencia: D3 → 1, D1 → 1, pulso de reloj, D3 → 0, D2 → 1, D1 → 0, D0 → 1, pulso de reloj.
 
 ```
 paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea
@@ -47,7 +57,7 @@ Q retiene su valor mientras D cambia sin un pulso de reloj (pasos 4–7).
 
 ## PISO: tabla de referencia
 
-Secuencia: activar D3, activar D1, aplicar un pulso de carga, cambiar SH/LD̅ a 1 y aplicar 4 pulsos de corrimiento.
+Secuencia: D3 → 1, D1 → 1, pulso de reloj (SH/LD̅ = 0), SH/LD̅ → 1 y cuatro pulsos de reloj.
 
 ```
 paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea

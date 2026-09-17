@@ -82,6 +82,39 @@ La web tiene dos simuladores con estado independiente (uno por pestaña); el har
 4. Montar los pulsadores CLK y CLR sobre el canal central, con la pata activa en diagonal a GND.
 5. Conectar el cable USB al final, una vez revisado todo el cableado.
 
+## Procedimiento de prueba canónico (HW-12 y HW-13)
+
+Condiciones iniciales:
+
+- D3–D0 y SH/LD̅ en OFF.
+- MODO en OFF para PIPO u ON para PISO.
+- Presionar RESET de la placa.
+- Abrir el Monitor Serie a 115200 baudios.
+
+PIPO:
+
+1. D3 → 1 (ON) — Q = 0000
+2. D1 → 1 (ON) — Q = 0000
+3. Pulso de reloj (CLK) — Q = 1010
+4. D3 → 0 (OFF) — Q = 1010
+5. D2 → 1 (ON) — Q = 1010
+6. D1 → 0 (OFF) — Q = 1010
+7. D0 → 1 (ON) — Q = 1010
+8. Pulso de reloj (CLK) — Q = 0101
+
+PISO:
+
+1. D3 → 1 (ON) — Q = 0000 · SER_OUT = 0
+2. D1 → 1 (ON) — Q = 0000 · SER_OUT = 0
+3. Pulso de reloj (CLK) — Q = 1010 · SER_OUT = 0
+4. SH/LD̅ → 1 (CORRIMIENTO) — Q = 1010 · SER_OUT = 0
+5. Pulso de reloj (CLK) — Q = 0101 · SER_OUT = 1
+6. Pulso de reloj (CLK) — Q = 0010 · SER_OUT = 0
+7. Pulso de reloj (CLK) — Q = 0001 · SER_OUT = 1
+8. Pulso de reloj (CLK) — Q = 0000 · SER_OUT = 0
+
+Criterio: las líneas del Monitor Serie (ignorando las que empiezan con `#`) deben coincidir exactamente con el CSV exportado de la web tras la misma secuencia.
+
 ## Solución de problemas
 
 | Síntoma | Causa probable |

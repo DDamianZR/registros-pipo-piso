@@ -81,8 +81,8 @@ Matriz completa de validación del proyecto. Las pruebas de la sección 15.A est
 | HW-09 | CLR | Q=0000 al instante, sin necesidad de CLK | |
 | HW-10 | MODO | Conmutar imprime el encabezado, fila INICIO, Q=0000; "L" refleja el modo | |
 | HW-11 | SH/LD̅ en PIPO | Conmutarlo no imprime filas | |
-| HW-12 | Coincidencia PIPO | D3–D0 y SH/LD̅ en OFF, MODO en OFF (PIPO), RESET de la placa y la secuencia canónica: las líneas del Monitor Serie (ignorando las que empiezan con `#`) son idénticas a la secuencia canónica | |
-| HW-13 | Coincidencia PISO | D3–D0 y SH/LD̅ en OFF, MODO en ON (PISO), RESET de la placa y la secuencia canónica: idénticas a la secuencia canónica; el LED SER_OUT sigue 0,1,0,1,0 | |
+| HW-12 | Coincidencia PIPO | D3–D0 y SH/LD̅ en OFF, MODO en OFF (PIPO), RESET de la placa y el procedimiento de `conexiones-arduino.md` › Procedimiento de prueba canónico: las líneas del Monitor Serie (ignorando las que empiezan con `#`) coinciden línea por línea con el CSV exportado de la web tras el mismo procedimiento | |
+| HW-13 | Coincidencia PISO | D3–D0 y SH/LD̅ en OFF, MODO en ON (PISO), RESET de la placa y el procedimiento de `conexiones-arduino.md` › Procedimiento de prueba canónico: coinciden línea por línea con el CSV exportado de la web tras el mismo procedimiento; el LED SER_OUT sigue 0,1,0,1,0 | |
 | HW-14 | SER_OUT = Q0 | En PISO, el LED amarillo siempre igual al LED Q0 | |
 
 ## Criterios de aceptación

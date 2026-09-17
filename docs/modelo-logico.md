@@ -83,7 +83,7 @@ Encabezado exacto: `paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea`
 
 ### Secuencia canónica PISO
 
-Obtenida con: cargar la página, activar D3, activar D1, aplicar un pulso de reloj, cambiar SH/LD̅ a 1 y aplicar cuatro pulsos más.
+Obtenida con: D3 → 1, D1 → 1, pulso de reloj (SH/LD̅ = 0), SH/LD̅ → 1 y cuatro pulsos de reloj.
 
 ```
 paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea
@@ -100,7 +100,7 @@ paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea
 
 ### Secuencia canónica PIPO
 
-Obtenida con: activar D3, activar D1, aplicar un pulso, activar D3, activar D2, activar D1, activar D0 y aplicar otro pulso.
+Obtenida con: D3 → 1, D1 → 1, pulso de reloj, D3 → 0, D2 → 1, D1 → 0, D0 → 1, pulso de reloj.
 
 ```
 paso,modo,evento,sh_ld,d3_d0,q3_q0,ser_out,bit_en_linea
