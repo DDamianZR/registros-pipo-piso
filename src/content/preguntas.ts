@@ -63,7 +63,7 @@ export const preguntas: Pregunta[] = [
     id: 'p10',
     pregunta: '¿Qué es una entrada flotante y cómo se evitó?',
     respuesta:
-      'Una entrada flotante es un pin digital que no está conectado firmemente ni a un nivel alto ni a uno bajo; su voltaje queda determinado por ruido, capacitancias parásitas o interferencia electromagnética, por lo que el microcontrolador puede leer 0 o 1 de forma aparentemente aleatoria e inconsistente. En el circuito físico se evita activando la resistencia interna `INPUT_PULLUP` de cada pin de entrada (switches y pulsadores), que fija el nivel en alto (5 V) cuando el interruptor está abierto; al cerrarlo, el pin se conecta a GND y se lee en bajo. Así, cada entrada tiene siempre un nivel definido, sin necesidad de resistencias externas, y no se generan lecturas espurias como las que produciría un pin sin conexión.',
+      'Una entrada flotante es un pin digital que no está conectado firmemente ni a un nivel alto ni a uno bajo; su voltaje queda determinado por ruido, capacitancias parásitas o interferencia electromagnética, por lo que el microcontrolador puede leer 0 o 1 de forma aparentemente aleatoria e inconsistente. En el circuito físico se evita activando la resistencia interna INPUT_PULLUP de cada pin de entrada (switches y pulsadores), que fija el nivel en alto (5 V) cuando el interruptor está abierto; al cerrarlo, el pin se conecta a GND y se lee en bajo. Así, cada entrada tiene siempre un nivel definido, sin necesidad de resistencias externas, y no se generan lecturas espurias como las que produciría un pin sin conexión.',
   },
   {
     id: 'p11',

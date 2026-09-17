@@ -22,6 +22,8 @@ function LabPanel() {
     <div className="panel-laboratorio">
       <SegmentedControl
         ariaLabel="Selecciona el registro a simular"
+        mode="tabs"
+        idPrefix="registro"
         value={activeKind}
         onChange={(value) => setActiveKind(value as SimKind)}
         options={[
@@ -29,27 +31,29 @@ function LabPanel() {
           { value: 'PISO', label: 'PISO' },
         ]}
       />
-      <div className="panel-laboratorio__area">
-        <div className="panel-laboratorio__controles">
-          <ControlDeck state={state} dispatch={dispatch} />
-          <RegisterReadout state={state} />
-          {state.kind === 'PISO' && <SerialOutputStrip state={state} />}
-          <HintBar state={state} />
+      <div role="tabpanel" id="registro-panel" aria-labelledby={`registro-${activeKind}`}>
+        <div className="panel-laboratorio__area">
+          <div className="panel-laboratorio__controles">
+            <ControlDeck state={state} dispatch={dispatch} />
+            <RegisterReadout state={state} />
+            {state.kind === 'PISO' && <SerialOutputStrip state={state} />}
+            <HintBar state={state} />
+          </div>
+          <div className="contenedor-diagrama">
+            <CircuitDiagram state={state} />
+          </div>
         </div>
-        <div className="contenedor-diagrama">
-          <CircuitDiagram state={state} />
-        </div>
+
+        <h3 id="tiempos" className="ancla-interna">
+          Carta de tiempos
+        </h3>
+        <TimingChart history={state.history} kind={state.kind} />
+
+        <h3 id="tabla" className="ancla-interna">
+          Tabla de funcionamiento
+        </h3>
+        <OperationTable history={state.history} kind={state.kind} dispatch={dispatch} />
       </div>
-
-      <h3 id="tiempos" className="ancla-interna">
-        Carta de tiempos
-      </h3>
-      <TimingChart history={state.history} kind={state.kind} />
-
-      <h3 id="tabla" className="ancla-interna">
-        Tabla de funcionamiento
-      </h3>
-      <OperationTable history={state.history} kind={state.kind} dispatch={dispatch} />
     </div>
   )
 }

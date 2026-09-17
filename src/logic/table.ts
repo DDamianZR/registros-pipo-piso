@@ -62,5 +62,5 @@ export function toCsv(rows: TableRow[], options?: { bom?: boolean }): string {
     ),
   ]
   const body = `${lines.join('\r\n')}\r\n`
-  return options?.bom ? `﻿${body}` : body
+  return options?.bom ? `\uFEFF${body}` : body
 }

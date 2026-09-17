@@ -31,6 +31,7 @@ function ControlDeck({ state, dispatch }: ControlDeckProps) {
       {state.kind === 'PISO' && (
         <SegmentedControl
           ariaLabel="SH/LD̅: carga o corrimiento"
+          mode="radio"
           value={String(state.shLd)}
           onChange={(value) => dispatch({ type: 'SET_SH_LD', value: value === '1' ? 1 : 0 })}
           options={[
@@ -47,6 +48,11 @@ function ControlDeck({ state, dispatch }: ControlDeckProps) {
           onPress={() => dispatch({ type: 'CLOCK_PULSE' })}
         />
         <PushButton label="CLR" variant="clear" onPress={() => dispatch({ type: 'CLEAR' })} />
+        <PushButton
+          label="Reiniciar simulación"
+          variant="neutral"
+          onPress={() => dispatch({ type: 'RESET_SIMULATION' })}
+        />
       </div>
     </div>
   )

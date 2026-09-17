@@ -71,6 +71,6 @@ describe('toCsv', () => {
 
   it('agrega BOM cuando se solicita', () => {
     const csv = toCsv([], { bom: true })
-    expect(csv.startsWith('﻿')).toBe(true)
+    expect(csv.startsWith('\uFEFF')).toBe(true)
   })
 })
