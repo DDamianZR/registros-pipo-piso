@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+*.log
+.vite/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.local
