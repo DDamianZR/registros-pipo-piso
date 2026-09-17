@@ -2,7 +2,7 @@
 
 Simulador interactivo y circuito físico de dos registros de 4 bits con reloj común: PIPO (entrada y salida paralela) y PISO (entrada paralela, salida serial).
 
-Sitio publicado: `https://<usuario>.github.io/registros-pipo-piso/` (se completa al desplegar el repositorio).
+Sitio publicado: <https://ddamianzr.github.io/registros-pipo-piso/>
 
 ## Contexto
 

@@ -14,6 +14,6 @@ export const proyecto: Proyecto = {
   materia: 'Diseño de Sistemas Digitales',
   fecha: '2026-09-20',
   autores: [],
-  urlRepositorio: '',
-  urlSitio: '',
+  urlRepositorio: 'https://github.com/DDamianZR/registros-pipo-piso',
+  urlSitio: 'https://ddamianzr.github.io/registros-pipo-piso/',
 }
