@@ -6,6 +6,7 @@ import ControlDeck from './ControlDeck'
 import RegisterReadout from './RegisterReadout'
 import SerialOutputStrip from './SerialOutputStrip'
 import HintBar from './HintBar'
+import CircuitDiagram from '../circuit/CircuitDiagram'
 
 function LabPanel() {
   const [pipoState, pipoDispatch] = useReducer(simulatorReducer, 'PIPO', createInitialState)
@@ -32,6 +33,9 @@ function LabPanel() {
           <RegisterReadout state={state} />
           {state.kind === 'PISO' && <SerialOutputStrip state={state} />}
           <HintBar state={state} />
+        </div>
+        <div className="contenedor-diagrama">
+          <CircuitDiagram state={state} />
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import './styles/base.css'
 import './styles/layout.css'
 import './styles/controls.css'
 import './styles/lab.css'
+import './styles/circuit.css'
 import App from './App'
 
 createRoot(document.getElementById('root')!).render(

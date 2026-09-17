@@ -1,0 +1,189 @@
+.contenedor-diagrama {
+  min-width: 0;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--inset);
+  padding: 16px;
+}
+
+.contenedor-diagrama svg {
+  min-width: 560px;
+}
+
+.diagrama-circuito {
+  display: block;
+  font-family: var(--font-mono);
+}
+
+.bus {
+  stroke: var(--sig-clock);
+  stroke-width: 2;
+}
+
+.bus--clr {
+  stroke: #9f1239;
+}
+
+.bus--control {
+  stroke: var(--sig-control);
+}
+
+.bus--flash {
+  stroke: var(--edge);
+  stroke-width: 3;
+}
+
+.bus__etiqueta {
+  font-size: 11px;
+  fill: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.terminal {
+  fill: var(--bg);
+  stroke: var(--text-muted);
+  stroke-width: 1;
+}
+
+.terminal__etiqueta {
+  font-size: 12px;
+  fill: var(--text);
+}
+
+.terminal__nombre {
+  font-size: 11px;
+  fill: var(--text-muted);
+}
+
+.hilo {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hilo--alto {
+  stroke: var(--wire-high);
+  stroke-width: 3;
+}
+
+.hilo--bajo {
+  stroke: var(--wire-low);
+  stroke-width: 2;
+}
+
+.hilo--inactivo {
+  stroke-dasharray: 4 4;
+  opacity: 0.35;
+}
+
+.hilo--reloj {
+  stroke: var(--sig-clock);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.hilo--flash {
+  stroke: var(--edge);
+  stroke-width: 2.5;
+}
+
+.hilo--control {
+  stroke: var(--sig-control);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.ff-simbolo__cuerpo {
+  fill: var(--bg);
+  stroke: var(--text);
+  stroke-width: 1.5;
+}
+
+.ff-simbolo--flash .ff-simbolo__cuerpo {
+  stroke: var(--edge);
+  stroke-width: 2.5;
+}
+
+.ff-simbolo__etiqueta {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+.ff-simbolo__bit {
+  font-size: 26px;
+  font-weight: 500;
+  fill: var(--accent);
+}
+
+.ff-simbolo__pin {
+  font-size: 11px;
+  fill: var(--text-muted);
+}
+
+.ff-simbolo__pin-chico {
+  font-size: 10px;
+  fill: var(--text-muted);
+}
+
+.ff-simbolo__reloj {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+}
+
+.mux-simbolo__cuerpo {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.mux-simbolo__pin {
+  font-size: 10px;
+  fill: var(--text-muted);
+}
+
+.mux-simbolo__salida {
+  font-size: 12px;
+  fill: var(--text);
+}
+
+.led-svg__circulo {
+  fill: var(--led-off);
+  stroke: var(--shadow-dark);
+  stroke-width: 1;
+}
+
+.led-svg--on.led-svg--q .led-svg__circulo {
+  fill: var(--led-q-on);
+}
+
+.led-svg--on.led-svg--serial .led-svg__circulo {
+  fill: var(--led-serial-on);
+}
+
+.led-svg__etiqueta {
+  font-size: 10px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+}
+
+.gnd-simbolo line {
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+}
+
+.gnd-simbolo__etiqueta {
+  font-size: 10px;
+  fill: var(--text-muted);
+}
+
+.leyenda {
+  font-size: 13px;
+  fill: var(--text-muted);
+}
+
+.leyenda-chica {
+  font-size: 11px;
+  fill: var(--text-muted);
+}
