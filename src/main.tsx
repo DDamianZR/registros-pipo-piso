@@ -13,6 +13,7 @@ import './styles/lab.css'
 import './styles/circuit.css'
 import './styles/timing.css'
 import './styles/table.css'
+import './styles/sections.css'
 import App from './App'
 
 createRoot(document.getElementById('root')!).render(

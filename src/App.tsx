@@ -2,6 +2,10 @@ import SiteHeader from './components/layout/SiteHeader'
 import SiteFooter from './components/layout/SiteFooter'
 import Section from './components/layout/Section'
 import LabPanel from './components/lab/LabPanel'
+import IntroSection from './components/sections/IntroSection'
+import TheorySection from './components/sections/TheorySection'
+import ResultsSection from './components/sections/ResultsSection'
+import QuestionsSection from './components/sections/QuestionsSection'
 
 function App() {
   return (
@@ -9,10 +13,10 @@ function App() {
       <SiteHeader />
       <main>
         <Section id="inicio" title="Registros PIPO y PISO de 4 bits" wide>
-          <p>Laboratorio interactivo de registros PIPO y PISO de 4 bits. Contenido temporal.</p>
+          <IntroSection />
         </Section>
         <Section id="fundamentos" eyebrow="Fundamentos" title="PIPO vs. PISO">
-          <p>Contenido temporal.</p>
+          <TheorySection />
         </Section>
         <Section id="laboratorio" eyebrow="Laboratorio" title="Simulador interactivo" wide>
           <LabPanel />
@@ -21,10 +25,10 @@ function App() {
           <p>Contenido temporal.</p>
         </Section>
         <Section id="resultados" eyebrow="Resultados" title="Resultados de referencia" wide>
-          <p>Contenido temporal.</p>
+          <ResultsSection />
         </Section>
         <Section id="preguntas" eyebrow="Preguntas" title="Preguntas de la práctica">
-          <p>Contenido temporal.</p>
+          <QuestionsSection />
         </Section>
       </main>
       <SiteFooter />
