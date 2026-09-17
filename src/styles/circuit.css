@@ -105,7 +105,7 @@
 }
 
 .ff-simbolo__etiqueta {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   fill: var(--text);
 }
@@ -117,12 +117,12 @@
 }
 
 .ff-simbolo__pin {
-  font-size: 11px;
+  font-size: 10px;
   fill: var(--text-muted);
 }
 
 .ff-simbolo__pin-chico {
-  font-size: 10px;
+  font-size: 9px;
   fill: var(--text-muted);
 }
 
@@ -139,12 +139,12 @@
 }
 
 .mux-simbolo__pin {
-  font-size: 10px;
+  font-size: 8px;
   fill: var(--text-muted);
 }
 
 .mux-simbolo__salida {
-  font-size: 12px;
+  font-size: 9px;
   fill: var(--text);
 }
 
@@ -168,7 +168,7 @@
 }
 
 .led-svg__etiqueta {
-  font-size: 10px;
+  font-size: 11px;
   fill: var(--text-muted);
   text-anchor: middle;
 }
@@ -184,7 +184,7 @@
 }
 
 .leyenda {
-  font-size: 13px;
+  font-size: 11px;
   fill: var(--text-muted);
 }
 
