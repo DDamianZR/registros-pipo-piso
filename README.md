@@ -14,9 +14,9 @@ Práctica 3 de la materia Diseño de Sistemas Digitales. Fecha de entrega: 20 de
 - González Miranda Julio César
 - Canales Zendreros Diego Damián
 
-Profesora: Ana Luz Barrales
-Grupo: 3BV1
-Semestre: 26-2
+| Profesora | Grupo | Semestre |
+|---|---|---|
+| Ana Luz Barrales | 3BV1 | 26-2 |
 
 ## Funcionalidades
 
