@@ -94,6 +94,8 @@ npm run build
 npm run preview
 ```
 
+Si instalas o actualizas dependencias con `npm install`, ejecuta después `npm run lock:limpiar` para retirar del lockfile los metadatos de financiamiento de terceros.
+
 ## Despliegue
 
 El flujo `.github/workflows/deploy.yml` construye el sitio (`npm ci`, `npm test`, `npm run build`) y lo publica en GitHub Pages mediante `actions/deploy-pages`, con Pages configurado para desplegar desde **GitHub Actions** (no desde una rama).
