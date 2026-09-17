@@ -135,13 +135,13 @@
 }
 
 .diagrama-conexiones__etiqueta {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   fill: var(--text);
 }
 
 .diagrama-conexiones__pin {
-  font-size: 11px;
+  font-size: 12px;
   fill: var(--text);
 }
 
@@ -149,19 +149,30 @@
   stroke-width: 2;
 }
 
-.diagrama-conexiones__bloque {
-  fill: var(--bg);
-  stroke: var(--shadow-dark);
-}
-
 .diagrama-conexiones__bloque-texto {
   font-size: 11px;
   fill: var(--text);
 }
 
-.diagrama-conexiones__nota {
-  font-size: 12px;
+.diagrama-conexiones__resistor-valor {
+  font-size: 10px;
   fill: var(--text-muted);
+}
+
+.diagrama-conexiones__nota {
+  font-size: 11px;
+  fill: var(--text-muted);
+}
+
+.diagrama-conexiones__cuerpo {
+  fill: var(--bg);
+  stroke: var(--text);
+  stroke-width: 1.5;
+}
+
+.diagrama-conexiones__punto {
+  fill: var(--text);
+  stroke: none;
 }
 
 .visor-codigo {

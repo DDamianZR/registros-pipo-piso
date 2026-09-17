@@ -1,91 +1,140 @@
-interface Fila {
-  pin: string
-  destino: string
-  tipo: 'led' | 'switch' | 'pulsador'
+import type { Body, LabelSpec } from '../geometry/geometry'
+import { buildWiringGeometry, tipoDePin } from './wiringGeometry'
+
+const geometry = buildWiringGeometry()
+
+function netStroke(netId: string): string {
+  if (netId === 'gnd') return 'var(--text-muted)'
+  const pin = netId.replace('sig', '')
+  const tipo = tipoDePin(pin)
+  if (tipo === 'led') return 'var(--sig-output)'
+  if (tipo === 'pulsador') return 'var(--sig-clock)'
+  return 'var(--sig-input)'
 }
 
-const FILAS: Fila[] = [
-  { pin: '12', destino: 'LED Q3', tipo: 'led' },
-  { pin: '11', destino: 'LED Q2', tipo: 'led' },
-  { pin: '10', destino: 'LED Q1', tipo: 'led' },
-  { pin: '9', destino: 'LED Q0', tipo: 'led' },
-  { pin: '8', destino: 'LED SER_OUT', tipo: 'led' },
-  { pin: '7', destino: 'Switch D3', tipo: 'switch' },
-  { pin: '6', destino: 'Switch D2', tipo: 'switch' },
-  { pin: '5', destino: 'Switch D1', tipo: 'switch' },
-  { pin: '4', destino: 'Switch D0', tipo: 'switch' },
-  { pin: '3', destino: 'Pulsador CLR', tipo: 'pulsador' },
-  { pin: '2', destino: 'Pulsador CLK', tipo: 'pulsador' },
-  { pin: 'A0', destino: 'Switch SH/LD̅', tipo: 'switch' },
-  { pin: 'A1', destino: 'Switch MODO', tipo: 'switch' },
-]
-
-const COLOR: Record<Fila['tipo'], string> = {
-  led: 'var(--sig-output)',
-  switch: 'var(--sig-input)',
-  pulsador: 'var(--sig-clock)',
+function labelClassFor(id: string): string {
+  if (id === 'arduino-titulo') return 'diagrama-conexiones__etiqueta'
+  if (id.startsWith('pin-') || id === 'gnd-pin') return 'diagrama-conexiones__pin mono'
+  if (id.startsWith('elemento-')) return 'diagrama-conexiones__bloque-texto'
+  if (id.startsWith('res-')) return 'diagrama-conexiones__resistor-valor'
+  return 'diagrama-conexiones__nota'
 }
 
-const ROW_H = 30
-const TOP = 30
-const ARDUINO_X = 40
-const ARDUINO_W = 140
-const TARGET_X = 620
-const TARGET_W = 220
+function ResistorBody({ rect }: { rect: Body['rect'] }) {
+  return <rect x={rect.x} y={rect.y} width={rect.w} height={rect.h} rx={3} className="diagrama-conexiones__cuerpo" />
+}
+
+function LedFisicoBody({ rect }: { rect: Body['rect'] }) {
+  const puntaX = rect.x + rect.w
+  const medioY = rect.y + rect.h / 2
+  const puntos = `${rect.x},${rect.y} ${rect.x},${rect.y + rect.h} ${puntaX},${medioY}`
+  return (
+    <g className="diagrama-conexiones__cuerpo">
+      <polygon points={puntos} />
+      <line x1={puntaX} y1={rect.y} x2={puntaX} y2={rect.y + rect.h} />
+    </g>
+  )
+}
+
+function SwitchBody({ rect }: { rect: Body['rect'] }) {
+  const bottom = rect.y + rect.h
+  return (
+    <g>
+      <circle cx={rect.x} cy={bottom} r={2.5} className="diagrama-conexiones__punto" />
+      <circle cx={rect.x + rect.w} cy={bottom} r={2.5} className="diagrama-conexiones__punto" />
+      <line
+        x1={rect.x}
+        y1={bottom}
+        x2={rect.x + rect.w - 4}
+        y2={bottom - 12}
+        className="diagrama-conexiones__cuerpo"
+      />
+    </g>
+  )
+}
+
+function PulsadorBody({ rect }: { rect: Body['rect'] }) {
+  const bottom = rect.y + rect.h
+  const midX = rect.x + rect.w / 2
+  return (
+    <g>
+      <circle cx={rect.x} cy={bottom} r={2.5} className="diagrama-conexiones__punto" />
+      <circle cx={rect.x + rect.w} cy={bottom} r={2.5} className="diagrama-conexiones__punto" />
+      <line x1={rect.x + 4} y1={bottom - 10} x2={rect.x + rect.w - 4} y2={bottom - 10} className="diagrama-conexiones__cuerpo" />
+      <line x1={midX} y1={bottom - 10} x2={midX} y2={rect.y} className="diagrama-conexiones__cuerpo" />
+    </g>
+  )
+}
+
+function DiagramBody({ body }: { body: Body }) {
+  switch (body.kind) {
+    case 'arduino':
+      return (
+        <rect
+          x={body.rect.x}
+          y={body.rect.y}
+          width={body.rect.w}
+          height={body.rect.h}
+          rx={8}
+          className="diagrama-conexiones__arduino"
+        />
+      )
+    case 'resistor':
+      return <ResistorBody rect={body.rect} />
+    case 'led-fisico':
+      return <LedFisicoBody rect={body.rect} />
+    case 'switch':
+      return <SwitchBody rect={body.rect} />
+    case 'pulsador':
+      return <PulsadorBody rect={body.rect} />
+    default:
+      return null
+  }
+}
+
+function labelText(label: LabelSpec): string {
+  return label.text
+}
 
 function WiringDiagram() {
-  const height = TOP + FILAS.length * ROW_H + 70
-
   return (
-    <svg viewBox={`0 0 900 ${height}`} width="100%" role="img" className="diagrama-conexiones">
-      <title>Diagrama de bloques de las conexiones entre Arduino y los componentes del circuito</title>
+    <svg viewBox={`0 0 ${geometry.width} ${geometry.height}`} width="100%" role="img" className="diagrama-conexiones">
+      <title>Diagrama de conexiones entre Arduino y los componentes del circuito, con resistencias, LEDs, switches, pulsadores y riel GND</title>
 
-      <rect
-        x={ARDUINO_X}
-        y={TOP}
-        width={ARDUINO_W}
-        height={FILAS.length * ROW_H}
-        rx={8}
-        className="diagrama-conexiones__arduino"
-      />
-      <text x={ARDUINO_X + ARDUINO_W / 2} y={TOP - 10} textAnchor="middle" className="diagrama-conexiones__etiqueta">
-        Arduino UNO
-      </text>
-
-      {FILAS.map((fila, index) => {
-        const y = TOP + ROW_H * index + ROW_H / 2
+      {geometry.nets.map((net) => {
+        const color = netStroke(net.id)
         return (
-          <g key={fila.pin}>
-            <text x={ARDUINO_X + ARDUINO_W - 10} y={y - 6} textAnchor="end" className="diagrama-conexiones__pin mono">
-              {fila.pin}
-            </text>
-            <line
-              x1={ARDUINO_X + ARDUINO_W}
-              y1={y}
-              x2={TARGET_X}
-              y2={y}
-              className="diagrama-conexiones__cable"
-              style={{ stroke: COLOR[fila.tipo] }}
-            />
-            <rect x={TARGET_X} y={y - 12} width={TARGET_W} height={24} rx={6} className="diagrama-conexiones__bloque" />
-            <text
-              x={TARGET_X + TARGET_W / 2}
-              y={y + 5}
-              textAnchor="middle"
-              className="diagrama-conexiones__bloque-texto mono"
-            >
-              {fila.destino}
-            </text>
+          <g key={net.id}>
+            {net.segments.map((seg, index) => (
+              <line
+                key={index}
+                x1={seg.x1}
+                y1={seg.y1}
+                x2={seg.x2}
+                y2={seg.y2}
+                className="diagrama-conexiones__cable"
+                style={{ stroke: color }}
+              />
+            ))}
           </g>
         )
       })}
 
-      <text x={ARDUINO_X} y={TOP + FILAS.length * ROW_H + 26} className="diagrama-conexiones__nota">
-        GND de Arduino → riel GND común (switches, pulsadores y cátodos de LED).
-      </text>
-      <text x={ARDUINO_X} y={TOP + FILAS.length * ROW_H + 46} className="diagrama-conexiones__nota">
-        D13 usa el LED integrado "L" de la placa; no requiere cableado externo.
-      </text>
+      {geometry.nets.flatMap((net) =>
+        net.junctions.map((j, index) => (
+          <circle key={`${net.id}-union-${index}`} cx={j.x} cy={j.y} r={3} className="union" />
+        )),
+      )}
+
+      {geometry.bodies.map((body) => (
+        <DiagramBody key={body.id} body={body} />
+      ))}
+
+      {geometry.labels.map((label) => (
+        <text key={label.id} x={label.x} y={label.y} textAnchor={label.anchor} className={labelClassFor(label.id)}>
+          {labelText(label)}
+        </text>
+      ))}
     </svg>
   )
 }
